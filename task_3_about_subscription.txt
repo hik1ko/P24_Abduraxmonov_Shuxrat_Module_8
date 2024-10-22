@@ -1,0 +1,49 @@
+GraphQLdagi subscriptionlar asosan real-time applicationlarda ishlatilinarkan.
+Bu APIdan ma'lumot olish un query va mutationsdan keyingi 3-tur ekan.
+WebSocket yoki MQTT protocollar bilan qurilgan APIlardan ma'lumot olishda 1 marta query
+jonatilarkan keyin esa updatelarni olish un yana query jo'natish shart emas.
+Bu asosan chatlarda yoki qanaqadir live eventlardan notification jo'natish uchun qol keladi.
+Quyida misol, agar biz qanaqadir davom etayotgan futbol oyinidagi eventlarni olib turishimiz
+un qayta qayta query jo'natmasdan 1ta queryda subscription bilan qo'shib jo'natsak u ozi
+avtomatik ravishda bizga updatelarni berib turadi.
+
+
+type Goal {
+  team: String!
+  scorer: String!
+  minute: Int!
+}
+
+type Subscription {
+  goalScored: Goal
+}
+
+
+---------------------------------------------------
+
+
+Front-end tomoni ma'lumotni quyidagicha olishi mumkin:
+subscription {
+  goalScored {
+    team
+    scorer
+    minute
+  }
+}
+
+-----------------------------------------
+
+response quyidagicha bo'ladi:
+{
+  "data": {
+    "goalScored": {
+      "team": "Barcelona FC",
+      "scorer": "Lionel Messi",
+      "minute": 45
+    }
+  }
+}
+
+--------------------------------------------
+
+bularni qollash uchun "channels" va "daphne" packagelaridan foydalanishimiz mumkin.

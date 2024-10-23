@@ -1,6 +1,4 @@
 import graphene
-from django.template.defaulttags import comment
-
 from apps.project.graphql.mutates import create_project_mutation, update_project_mutation, delete_project_mutation, \
     update_task_mutation, update_comment_mutation
 from apps.project.graphql.types import ProjectType, TaskType, CommentType

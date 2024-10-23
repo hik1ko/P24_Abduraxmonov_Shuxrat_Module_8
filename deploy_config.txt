@@ -26,7 +26,7 @@ systemctl status exam.service
 
 server {
     listen       80;
-    server_name  lithium.uz;
+    server_name  exam.lithium.uz;
 
     location = /favicon.ico { access_log off; log_not_found off; }
 

@@ -1,1 +1,1 @@
-project joylashgan domain : lithium.uz
+project joylashgan domain : exam.lithium.uz

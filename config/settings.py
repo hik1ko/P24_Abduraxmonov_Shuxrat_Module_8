@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-4maoo8kxrplq*c*vsmlm8pojcf=%6&%yohsn@gxwa=(x&mmuz3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['exam.lithium.uz']
 
 # Application definition
 
